@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>{% if title %}{{title}}{% else %}Notes{% endif %}</title>
+    {% endblock %}
+    <link rel="stylesheet" href="static/home/css/base.css">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <nav class="nav">
+        <ul class="flex-box">
+            <li class="logo">Notes</li>
+            <li class="settings">Settings</li>
+            <li class="logout">Logout</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+    {% block body %}
+    {% endblock %}
+    </div>
+</body>
+</html>

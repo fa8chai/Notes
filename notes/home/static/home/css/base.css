@@ -1,0 +1,26 @@
+body{
+    background-color: whitesmoke;
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    list-style-type: none;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: solid 3px gray;
+}
+ul .logo, .settings, .logout{
+    padding: 10px 25px;
+    border-radius: 20px;
+}
+ul .logo{
+    background-color: rgb(10, 95, 84);
+}
+.container{
+    width: 90%;
+    margin: auto;
+}

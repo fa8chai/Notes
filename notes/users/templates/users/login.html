@@ -1,0 +1,17 @@
+{% extends 'users/base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="static/users/css/login.css">
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Hello</h1>
+        <form class="form" method='POST'>
+            {% csrf_token %}
+            <input class="emai" type="email" name="email" placeholder="Email">
+            <input class="password" type="password" name="password" placeholder="Password">
+            <input class="login-btn" type="submit" value="Login">            
+        </form>
+    </div>
+{% endblock %}
