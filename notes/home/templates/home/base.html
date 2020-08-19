@@ -7,16 +7,16 @@
     {% block title %}
         <title>{% if title %}{{title}}{% else %}Notes{% endif %}</title>
     {% endblock %}
-    <link rel="stylesheet" href="static/home/css/base.css">
+    <link rel="stylesheet" href="{% static 'home/css/base.css' %}">
     {% block style %}
     {% endblock %}
 </head>
 <body>
     <nav class="nav">
         <ul class="flex-box">
-            <li class="logo">Notes</li>
-            <li class="settings">Settings</li>
-            <li class="logout">Logout</li>
+            <li class="logo"><a class="base" style="color: white; text-decoration:unset" href="{% url 'main' %}">Notes</a></li>
+            <li class="settings"><a class="base" style="color: white; text-decoration:unset" href="{% url 'settings' %}">Settings</a></li>
+            <li class="logout"><a class="base" href="{% url 'logout' %}" style="color: white; text-decoration:unset">Logout</a></li>
         </ul>
     </nav>
 
@@ -24,5 +24,6 @@
     {% block body %}
     {% endblock %}
     </div>
+
 </body>
 </html>

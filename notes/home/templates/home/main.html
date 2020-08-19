@@ -1,11 +1,44 @@
 {% extends 'home/base.html' %}
-
+{% load static %}
 {% block style %}
+<link rel="stylesheet" href="{% static 'home/css/main.css' %}">
 {% endblock %}
 
 
 {% block body %}
 <div class="sub-container">
-<h1>Hello</h1>
+    <div class="form-container">
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            {{form.note}}
+            <input class="category-input" type="text" name="category" placeholder="Category">
+            {{form.reminder}}
+            <p style="color:rgb(20,20,20)">Reminder will be sent to your email a day before.</p>
+            <input class="add-btn" type="submit" value="Add">
+        </form>
+    </div>
+
+    <div class="notes-container">
+        <h4 class="search"><a style="color:rgb(20,20,20); text-decoration:none;" href="{% url 'search_note' %}">Search</a></h4>
+        {% for note in notes %}
+        <div class="note">
+            <p class="category">{{ note.category.text }}</p>
+            <a style="color: unset;text-decoration:unset" href="{% url 'view_note' note.pk %}">
+            <div class="note2">
+                {% if note.passed %}
+                <p style="color:rgb(100,100,100)" class="text">{{ note.note }}</p>
+                <p style="color:rgb(100,100,100)" class="reminder">{{ note.reminder }}</p>
+                {% else %}
+                <p class="text">{{ note.note }}</p>
+                <p class="reminder">{{ note.reminder }}</p>
+                {% endif %}
+            </div>
+            </a>
+        </div>
+        {% empty %}
+        <h3 class="h3">You don't have any notes yet</h3>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -1,17 +1,21 @@
 {% extends 'users/base.html' %}
-
+{% load static %}
 {% block style %}
-<link rel="stylesheet" href="static/users/css/login.css">
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
 {% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Hello</h1>
+    <div class="sub-container">
+        <h1 class="text">Login</h1>
+        {% if error %}
+        <p class="error">{{error}}</p>
+        {% endif %}
         <form class="form" method='POST'>
             {% csrf_token %}
             <input class="emai" type="email" name="email" placeholder="Email">
             <input class="password" type="password" name="password" placeholder="Password">
             <input class="login-btn" type="submit" value="Login">            
         </form>
+        <h3 class="new">Don't have an account? <a style="color:rgb(49, 74, 119)" href="{% url 'signup' %}">Sign up</a></h3>
     </div>
 {% endblock %}

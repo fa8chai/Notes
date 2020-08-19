@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/css/view_note.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="sub-container">
+    <div class="note">
+        {% if error %}<p style="color: red;">{{error}}</p>
+        {% else %}
+            {% if note.passed %}
+            <h4>{{note.passed}}</h4>
+                <h2 style="color:rgb(100,100,100)" class="text">{{note.note}}</h2>
+                <h3 style="color:rgb(100,100,100)">Reminder at {{note.reminder}}</h3>
+            {% else %}
+            <h2 class="text">{{note.note}}</h2>
+            <h3>Reminder at {{note.reminder}}</h3>
+            {% endif %}
+            <a style="color: rgb(95, 10, 10)" href="{% url 'delete' note.pk %}">Delete</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+.sub-container{
+    width: 90%;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 15rem;
+}
+form{
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+.notes{
+    width: 100%;
+    margin: auto;
+}
+input{
+    display: block;
+    margin: 20px 0px;
+    padding: 9px;
+    width: 100%;
+    border: solid gray 1px;
+    border-radius: 5px;
+}
+#id_search_reminder{
+    flex-basis: 800px;
+}
+.search{
+    cursor: pointer;
+    background-color: rgb(5, 5, 5);
+    color:white;
+    flex-basis: 250px;
+}
+.note{
+    margin:2rem;
+}
+.note>h3{
+    font-weight: lighter;
+}
+
+@media(min-width:996px){
+    form{
+        width: 50%;
+    }
+    .notes{
+        width: 50%;
+    }
+}

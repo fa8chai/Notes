@@ -3,24 +3,24 @@ body{
     margin: 0;
 }
 
+.base{
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: solid 2px rgb(95, 10, 10);
+}
+
 ul{
     margin: 0;
     list-style-type: none;
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(5, 5, 5);
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: solid 3px gray;
+    border-bottom: solid 1px gray;
 }
 ul .logo, .settings, .logout{
     padding: 10px 25px;
     border-radius: 20px;
 }
-ul .logo{
-    background-color: rgb(10, 95, 84);
-}
-.container{
-    width: 90%;
-    margin: auto;
-}
+

@@ -3,17 +3,18 @@ from .models import CustomUser
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout,login, authenticate
 from .forms import CustomUserCreationForm
-from home.views import main
 from .models import CustomUser
 User = CustomUser
 
-def login(request):
+
+def signin(request):
     if request.method =='POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, user, password)
+        user = authenticate(request, email=email, password=password)
         if user:
-            redirect(main)
+            login(request, user)
+            return redirect('main')
         else:
             try:
                 user = User.objects.get(email=email)
@@ -26,16 +27,17 @@ def signup(request):
     form = CustomUserCreationForm
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             user = form.save()
-            redirect(main)
+            login(request, user)
+            return redirect('main')
         else:
-            return render(request, 'users/signup.html',{'form':form})
-    return render(request, 'users/signup.html',{})
+            return render(request, 'users/signup.html',{'form':form,})
+    return render(request, 'users/signup.html',{'form':form,})
 
 
 
 @login_required
 def signout(request):
     logout(request)
-    return redirect(login)
+    return redirect(signin)

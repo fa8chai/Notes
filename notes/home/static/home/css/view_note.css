@@ -1,0 +1,18 @@
+.sub-container{
+    margin: auto;
+    margin-top: 8rem;
+    margin-bottom: 15rem;
+    width:90%;
+}
+.note{
+    width: 100%;
+    margin: auto;
+}
+.note > h2, h3{
+    font-weight: lighter;
+}
+
+@media(min-width:996px){
+    .note{
+        width: 50%;
+    }}

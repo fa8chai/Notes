@@ -1,0 +1,39 @@
+.sub-container{
+    margin-top: 5rem;
+    
+}
+form{
+    width: 70%;
+}
+.text{
+    margin: 20px;
+}
+input{
+    display: block;
+    margin: 20px;
+    padding: 9px;
+    width: 100%;
+    border: solid gray 1px;
+    border-radius: 5px;
+}
+.signup-btn{
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(95, 10, 10);
+    color:white
+}
+.new{
+    font-weight: unset;
+    margin:20px;
+}
+.error{
+    color: red;
+    margin:0px;
+    margin-left: 20px;
+    padding: 0;
+}
+@media(min-width:996px){
+    form{
+        width:40%
+    }
+}

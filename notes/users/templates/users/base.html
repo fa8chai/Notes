@@ -7,13 +7,15 @@
     {% block title %}
         <title>{% if title %}{{title}}{% else %}Notes{% endif %}</title>
     {% endblock %}
-    <link rel="stylesheet" href="static/users/css/base.css">
+    <link rel="stylesheet" href="{% static 'users/css/base.css' %}">
     {% block style %}
     {% endblock %}
 </head>
 <body>
     
     <div class="container">
+        <h2 style="text-align: center;margin-top:4rem">N<span style="color: rgb(95, 10, 10);">o</span>t<span style="color: rgb(95, 10, 10);">e</span>s</h2>
+        <h3 style="text-align: center; font-weight:unset">Keep your notes in one notebook and it'll reminde you</h3>
         {% block body %}
         {% endblock %}
     </div>

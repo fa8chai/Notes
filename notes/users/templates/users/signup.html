@@ -1,9 +1,28 @@
 {% extends 'users/base.html' %}
-
-{% block style %}{% endblock %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'users/css/signup.css' %}">
+{% endblock %}
 
 {% block body %}
-    <div>
-        {{form}}
+    <div class="sub-container">
+        <h1 class="text">Create New Account</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% if error %}
+            <p class="error"></p>
+            {% endif %}
+
+            {% for field in form %}
+                {{field}}
+                {% for error in field.errors %}
+                <p class="error">{{error}}</p>
+                {% endfor %}
+            {% endfor %}
+
+            <input class="signup-btn" type="submit" value="Signup">
+        </form>
+        <h3 class="new">Have an account? <a style="color:rgb(49, 74, 119)" href="{% url 'login' %}">Log in</a></h3>
+        
     </div>
 {% endblock %}

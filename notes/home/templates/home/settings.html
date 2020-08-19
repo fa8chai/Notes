@@ -1,0 +1,14 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'home/css/settings.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="sub-container">
+    <h3 class="user">{{user.get_full_name}}</h3>
+    <h4 class="email">{{user.email}}</h4>
+    <a style="color: rgb(49, 74, 119) ;" href="{% url 'delete_account' %}">Deactivate my account</a>
+</div>
+{% endblock %}
