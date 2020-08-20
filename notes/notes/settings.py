@@ -129,11 +129,11 @@ AUTH_USER_MODEL='users.CustomUser'
 
 
 # Email Config
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'anne.wi.sw@gmail.com'
-EMAIL_HOST_PASSWORD = 'veer.zaara'
-EMAIL_PORT = 587
+EMAIL_USE_TLS = 
+EMAIL_HOST = 
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
+EMAIL_PORT =
 
 # Celery, redis config
 BROKER_URL = 'redis://localhost:6379'
